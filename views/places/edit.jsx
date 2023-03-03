@@ -8,6 +8,14 @@ function edit_form(data) {
         <h1>Edit Place</h1>
         <form method="POST" action={`/places/${data.place.id}?_method=PUT`}>
           <div className="row">
+          <div className="form-group col-sm-4">
+            <label htmlFor="founded">Founded</label>
+            <input className="form-control" 
+              id="founded" 
+              name="founded" 
+              value={data.place.founded} 
+            />
+          </div>
             <div className="form-group col-sm-6">
               <label htmlFor="name">Place Name</label>
               <input
