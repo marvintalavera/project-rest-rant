@@ -23,6 +23,8 @@ function show(data) {
         {stars} stars
       </h3>
     )  
+  }
+  if (data.place.comments.length) {
     comments = data.place.comments.map((c, index) => {
       return (
         <div className="border" key={index}>
@@ -32,10 +34,13 @@ function show(data) {
             <stong>- {c.author}</stong>
           </h3>
           <h4>Rating: {c.stars}</h4>
-        </div>
-      )
-    })
-  }
+          <form method="POST" action={`/places/${data.place.id}/comment/${c.id}?_method=DELETE`}>
+            <input type="submit" className="btn btn-danger" value="Delete Comment" />
+          </form>
+      </div>
+    )
+  })
+}
   return (
     <Def>
       <main>        
