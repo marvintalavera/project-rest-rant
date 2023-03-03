@@ -38,7 +38,7 @@ function show(data) {
             <h2>Description</h2>
             <h3>{data.place.showEstablished()}</h3>
             <h4>Serving {data.place.cuisines}</h4>
-            <form method="POST" action="/places/{place.id}/comment" className="comment-form">
+            <form method="POST" action={`/places/${data.place._id}/comment`} className="comment-form">
             <legend className='comment-legend'><h4>Add A Comment</h4></legend>
             <div className="comment-auth">
             <label htmlFor="Author">Author:</label>
@@ -61,10 +61,10 @@ function show(data) {
             </div>
             </form>
             {comments}
-            <a href={`/places/${data.id}/edit`} className="btn btn-warning">
+            <a href={`/places/${data.place._id}/edit`} className="btn btn-warning">
               Edit
             </a>
-            <form method="POST" action={`/places/${data.id}?_method=DELETE`}>
+            <form method="POST" action={`/places/${data.place._id}?_method=DELETE`}>
               <button type="submit" className="btn btn-danger">
                 Delete
               </button>
