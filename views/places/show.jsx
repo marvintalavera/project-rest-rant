@@ -7,9 +7,9 @@ function show(data) {
     </h3>
   )
   if (data.place.comments.length) {
-    comments = data.place.comments.map(c => {
+    comments = data.place.comments.map((c, index) => {
       return (
-        <div className="border">
+        <div className="border" key={index}>
           <h2 className="rant">{c.rant ? 'Rant! ðŸ˜¡' : 'Rave! ðŸ˜»'}</h2>
           <h4>{c.content}</h4>
           <h3>
