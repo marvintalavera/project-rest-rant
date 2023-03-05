@@ -4,6 +4,8 @@ const express = require('express')
 const app = express()
 const methodOverride = require('method-override')
 
+const PORT = process.env.PORT
+
 // Express Settings
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
