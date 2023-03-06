@@ -49,12 +49,12 @@ function show(data) {
         <div style={{ margin: 'auto'}}>
           <div>
             <h1 style={{ marginTop:'2rem', marginBottom: '2rem', fontSize: '35px'}}>{data.place.name}</h1>
-            <div style={{ width: 'auto', height: 'auto', margin: 'auto' }}>
+            <div style={{ width: 'auto', height: 'auto', margin: '1rem' }}>
             <img src={data.place.pic} alt={data.place.name}/>
             </div>
             <h3 style={{ marginTop: '1rem'}}>{data.place.showEstablished()}</h3>
             <h6 style={{ marginBottom: '2rem', marginRight: '1rem' }}>Category: {data.place.cuisines}</h6>
-            <h5 style={{ marginBottom: '.1rem' }}>Rating:</h5>
+            <h5 style={{ marginBottom: '.1rem'}}>Rating:</h5>
             {rating}
           </div>
           <div>

@@ -8,8 +8,8 @@ function index(data, index) {
         <h3>
           <a href={`/places/${place.id}`}>{place.name}</a>
         </h3>
-        <p className="text-center">{place.cuisines}</p>
-        <div style={{ width: 'auto', height: 'auto', margin: 'auto' }}>
+        <p className="text-center">Category: {place.cuisines}</p>
+        <div style={{ width: 'auto', height: 'auto', margin: '1rem' }}>
         <img src={place.pic} alt={place.name}/>
         </div>
         <p className="text-center">
