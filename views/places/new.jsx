@@ -3,8 +3,8 @@ const Def = require("../default");
 function new_Form() {
   return (
     <Def>
-      <main>
-        <h1>Add a New Place</h1>
+      <main style={{ backgroundColor: 'white'}}>
+        <h1 style={{ marginTop:'2rem', marginBottom: '2rem', fontSize: '35px'}}>Add a New Place</h1>
         <form method="POST" action="/places">
           <div className="form-group">
             <label htmlFor="name">Place Name</label>
@@ -32,16 +32,15 @@ function new_Form() {
             />
           </div>
           <div className="form-group">
-            <label for="founded">Founded Year</label>
+            <label htmlFor="founded">Founded Year</label>
             <input
               className="form-control"
               id="founded"
               name="founded"
-              value={new Date().getFullYear()}
+              defaultValue={new Date().getFullYear()}
             />
           </div>
-
-          <input className="btn btn-primary" type="submit" value="Add Place" />
+          <input className="btn btn-primary" type="submit" defaultValue="Add Place" />
         </form>
       </main>
     </Def>

@@ -2,12 +2,14 @@ const React = require("react");
 const Def = require("../default");
 function show(data) {
   let comments = (
-    <h3 className="inactive">
-      No comments yet!
-    </h3>
+    <h6 className="inactive" style={{ marginTop: '.5rem', fontSize: '12px'}}>
+      No comments yet
+    </h6>
   )
   let rating = (
-    <h3 className="inactive"></h3>
+    <h6 className="inactive" style={{ marginTop: '.5rem', fontSize: '12px'}}>
+      No ratings yet
+    </h6>
   )
   if (data.place.comments.length) {
     let sumRatings = data.place.comments.reduce((tot, c) => {
@@ -19,7 +21,7 @@ function show(data) {
       stars += '⭐️'
     }
     rating = (
-      <h3>
+      <h3 style={{ fontSize: '20px'}}>
         {stars} stars
       </h3>
     )  
@@ -43,45 +45,50 @@ function show(data) {
 }
   return (
     <Def>
-      <main>        
-        <div className="row">
-          <div className="col-sm-6">
-            <h1>{data.place.name}</h1>
-            <img src={data.place.pic} alt={data.place.name} />
-            <h3>
-              Located in {data.place.city}, {data.place.state}{" "}
-              {data.place.cuisines}
-            </h3>
-          </div>
-          <div className="col-sm-6">
-            <h2>Rating</h2>
+      <main style={{ backgroundColor: 'white'}}>        
+        <div style={{ margin: 'auto'}}>
+          <div>
+            <h1 style={{ marginTop:'2rem', marginBottom: '2rem', fontSize: '35px'}}>{data.place.name}</h1>
+            <div style={{ width: 'auto', height: 'auto', margin: 'auto' }}>
+            <img src={data.place.pic} alt={data.place.name}/>
+            </div>
+            <h3 style={{ marginTop: '1rem'}}>{data.place.showEstablished()}</h3>
+            <h6 style={{ marginBottom: '2rem', marginRight: '1rem' }}>Category: {data.place.cuisines}</h6>
+            <h5 style={{ marginBottom: '.1rem' }}>Rating:</h5>
             {rating}
-            <h2>Description</h2>
-            <h3>{data.place.showEstablished()}</h3>
-            <h4>Serving {data.place.cuisines}</h4>
+          </div>
+          <div>
+            <div style={{ marginTop: '3rem' }}>
             <form method="POST" action={`/places/${data.place._id}/comment`} className="comment-form">
-            <legend className='comment-legend'><h4>Add A Comment</h4></legend>
-            <div className="comment-auth">
-            <label htmlFor="Author">Author:</label>
+            <legend className='comment-legend'><h5 style={{ marginBottom: '.2rem' }}>Add A Comment</h5></legend>
+            <div className="comment-auth" style={{ width: '15rem', marginBottom: '1rem', marginLeft: 'auto', marginRight: 'auto'}}>
+            <h6 style={{ color: 'gray', fontSize: '12px' }}>Your Name:</h6>
+            <label htmlFor="Author"></label>
             <input type="text" name="author"/>
             </div>
+            <div className="comment-content">
+            <label htmlFor="content"></label>
+            <textarea name="content" rows="6" style={{ width: '15rem' }}></textarea>
+            </div>
             <div className="comment-stars">
-            <label htmlFor="stars">Rating:</label>
+            <label htmlFor="stars" style={{ marginRight: '.5rem' }}>Rating:</label>
             <input type="number" name="stars" step="0.5" min="0.5" max="5" defaultValue="0.5" />
             </div>
             <div className="comment-rant">
-            <label htmlFor="rant">Rant:</label>
+            <label htmlFor="rant" style={{ marginRight: '.5rem' }}>Unsatisfied?</label>
             <input type="checkbox" name="rant" value="rant" />
             </div>
-            <div className="comment-content">
-            <label htmlFor="content">Content</label>
-            <textarea name="content" rows="5"></textarea>
-            </div>
             <div className="comment-submit">
-            <button type="submit">Comment</button>
+            <button type="submit" style={{ marginBottom: '2rem'}}>Submit</button>
             </div>
             </form>
+            </div>
+            </div>
+            <h5 style={{ marginBottom: '.1rem', marginTop: '2rem', fontSize: '24px' }}>Comments:</h5>
+            <h3 style={{ fontSize: '20px'}}>
             {comments}
+            </h3>
+            <div style={{ marginTop: '2rem'}}>
             <a href={`/places/${data.place._id}/edit`} className="btn btn-warning">
               Edit
             </a>

@@ -4,16 +4,16 @@ const Def = require("../default.jsx");
 function edit_form(data) {
   return (
     <Def>
-      <main>
-        <h1>Edit Place</h1>
+      <main style={{ backgroundColor: 'white'}}>
+        <h1 style={{ marginTop:'2rem', marginBottom: '2rem', fontSize: '35px'}}>Edit Place</h1>
         <form method="POST" action={`/places/${data.place.id}?_method=PUT`}>
           <div className="row">
-          <div className="form-group col-sm-4">
+          <div className="form-group col-sm-6">
             <label htmlFor="founded">Founded</label>
             <input className="form-control" 
               id="founded" 
               name="founded" 
-              value={data.place.founded} 
+              defaultValue={data.place.founded} 
             />
           </div>
             <div className="form-group col-sm-6">
@@ -35,7 +35,6 @@ function edit_form(data) {
                 defaultValue={data.place.pic}
               />
             </div>
-
             <div className="form-group col-sm-6">
               <label htmlFor="city">City</label>
               <input
@@ -54,8 +53,7 @@ function edit_form(data) {
                 defaultValue={data.place.state}
               />
             </div>
-          </div>
-          <div className="form-group">
+          <div className="form-group col-sm-6">
             <label htmlFor="cuisines">Cuisines</label>
             <input
               className="form-control"
@@ -64,6 +62,7 @@ function edit_form(data) {
               defaultValue={data.place.cuisines}
               required
             />
+          </div>
           </div>
           <input className="btn btn-primary" type="submit" value="Add Place" />
         </form>
