@@ -84,7 +84,7 @@ function show(data) {
             </form>
             </div>
             </div>
-            <h5 style={{ marginBottom: '.1rem', marginTop: '2rem', fontSize: '24px' }}>Comments:</h5>
+            <h5 style={{ marginBottom: '1rem', marginTop: '2rem', fontSize: '24px' }}>Comments:</h5>
             <h3 style={{ fontSize: '20px'}}>
             {comments}
             </h3>
