@@ -62,17 +62,16 @@ function show(data) {
             <form method="POST" action={`/places/${data.place._id}/comment`} className="comment-form">
             <legend className='comment-legend'><h5 style={{ marginBottom: '.2rem' }}>Add A Comment</h5></legend>
             <div className="comment-auth" style={{ width: '15rem', marginBottom: '1rem', marginLeft: 'auto', marginRight: 'auto'}}>
-            <h6 style={{ color: 'gray', fontSize: '12px' }}>Your Name:</h6>
             <label htmlFor="Author"></label>
-            <input type="text" name="author"/>
+            <input type="text" name="author" placeholder="Enter Your Name"/>
             </div>
             <div className="comment-content">
             <label htmlFor="content"></label>
-            <textarea name="content" rows="6" style={{ width: '15rem' }}></textarea>
+            <textarea name="content" rows="6" style={{ width: '15rem' }} placeholder="Comment"></textarea>
             </div>
             <div className="comment-stars">
             <label htmlFor="stars" style={{ marginRight: '.5rem' }}>Rating:</label>
-            <input type="number" name="stars" step="0.5" min="0.5" max="5" defaultValue="0.5" />
+            <input type="number" name="stars" step="0.5" min="0.5" max="5" defaultValue="0.5"/>
             </div>
             <div className="comment-rant">
             <label htmlFor="rant" style={{ marginRight: '.5rem' }}>Unsatisfied?</label>
